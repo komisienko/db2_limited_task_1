@@ -1,0 +1,77 @@
+@import "variables";
+
+.header {
+	position: relative;
+	height: var(--header-height);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	box-shadow: var(--shadow);
+	grid-area: header;
+	padding: 0 40px;
+
+	&::before {
+		/* never visible - used to check MQ in JS */
+		display: none;
+		content: "mobile";
+	}
+	.breadcrumb {
+		font-size: 13px;
+		list-style: none;
+		color: var(--header-color);
+		:not(:first-child) {
+			margin-left: 12px;
+		}
+		li {
+			display: inline;
+			text-decoration: none;
+			a {
+				text-decoration: none;
+				color: inherit;
+			}
+		}
+
+		li + li:before {
+			position: relative;
+			content: "";
+			display: inline-block;
+			width: 0.4em;
+			height: 0.4em;
+			border-right: 0.1em solid var(--helper-item-color);
+			border-top: 0.1em solid var(--helper-item-color);
+			transform: rotate(45deg);
+			margin-right: 12px;
+		}
+	}
+	.user-dropdown {
+		text-decoration: none;
+		color: var(--header-color);
+		.user-dropdown__image {
+			width: 22px;
+			height: 22px;
+			border-radius: 50%;
+			margin-right: 9px;
+			position: relative;
+			float: left;
+		}
+		.user-dropdown__name {
+			font-size: 14px;
+			letter-spacing: 0.28px;
+			height: 22px;
+			line-height: 22px;
+
+			&:after {
+				content: "";
+				border: solid black;
+				border-width: 0 0.1em 0.1em 0;
+				display: inline-block;
+				padding: 3px;
+				position: relative;
+				top: -2px;
+				margin-left: 8px;
+				transform: rotate(45deg);
+				-webkit-transform: rotate(45deg);
+			}
+		}
+	}
+}

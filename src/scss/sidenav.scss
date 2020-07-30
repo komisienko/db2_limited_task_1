@@ -1,0 +1,60 @@
+.sidenav {
+	grid-area: sidenav;
+	background-color: #01134e;
+	& :nth-child(2) {
+		margin-top: 50px;
+	}
+	&__label {
+		height: var(--header-height);
+		text-align: center;
+		#logo {
+			display: block;
+			img {
+				width: 35px;
+				height: 35px;
+				margin-top: 18px;
+			}
+		}
+	}
+	&__item {
+		text-align: center;
+		height: 68px;
+		position: relative;
+		&:not(.active) {
+			img {
+				opacity: 0.5;
+			}
+		}
+		.sidenav__notice {
+			display: block;
+			width: 19px;
+			height: 19px;
+			position: absolute;
+			line-height: 19px;
+			color: #fff;
+			border-radius: 50%;
+			top: 17px;
+			margin: 0;
+			left: 41px;
+			background-color: #2a74db;
+		}
+		&.active {
+			&::before {
+				content: "";
+				top: 9px;
+				width: 4px;
+				height: 48px;
+				background-color: var(--helper-item-color);
+				left: 0;
+				position: absolute;
+			}
+		}
+		a {
+			position: relative;
+			display: flex;
+			height: inherit;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+}
